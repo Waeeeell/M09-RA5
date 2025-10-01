@@ -5,7 +5,9 @@ public class RotX {
 
     public static void main(String[] Args) {
 
-        int desplacament = 0; // inicio desplacamiento en 0
+        RotX rot = new RotX();
+
+        int desplacament = 13; // inicio desplacamiento en 0
         String[] cadena = {
 
                 "ABC",
@@ -14,6 +16,20 @@ public class RotX {
                 "Perdó, per tu què és?"
 
         };
+
+        System.out.println("Xifrat:");
+        for (int i = 0; i < cadena.length; i++) {
+            String xifrada = rot.xifraRot13(cadena[i], desplacament); // ejemplo con desplazamiento 4
+            System.out.println(cadena[i] + " => " + xifrada);
+
+            System.out.println("Desxifrat:");
+            System.out.println(xifrada + " => " + rot.desxifraRot13(xifrada, desplacament));
+
+            System.out.println("Força bruta:");
+            rot.forcaBrutaRotX(xifrada);
+            System.out.println("-------------");
+        }
+
     }
 
     public String xifraRot13(String cadena, int desplacament) {
@@ -94,7 +110,11 @@ public class RotX {
         return resultat;
     }
 
-    public String forcaBrutaRotX(String cadenaXifrada) {
-
+    public void forcaBrutaRotX(String cadena) {
+        int N = minuscules.length;
+        for (int d = 0; d <= N; d++) {
+            String intent = desxifraRot13(cadena, d);
+            System.out.println("(" + d + ")->" + intent);
+        }
     }
 }
