@@ -29,7 +29,7 @@ public class AES {
 
             try {
                 bXifrats = xifraAES(msg, CLAU);
-                desxifrat = desxifraAES(bXifrats, CLAU);
+                desxifrat = desXifraAES(bXifrats, CLAU);
             } catch (Exception e) {
                 System.err.println("Error de xifrat: "
                         + e.getLocalizedMessage());
@@ -43,11 +43,20 @@ public class AES {
     }
 
     public static byte[] xifraAES(String msg String password) throws Exception{
-
+        //obtenir els bytes de l'String
+        //genera IvParameterSpec
+        //Genera hash
+        //Encrypt
+        //Combinar IV i part xifrada
+        //return iv+msgxifrat
     }
 
     public String desXifraAES(byte[] bMsgXifrat, String password) throws Exception {
-
+        // extreure l'IV
+        // Extreure la part xifrada
+        // fer hash de la clau
+        // Desxifrar
+        // return String desxifrat
     }
 
 }
